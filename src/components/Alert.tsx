@@ -62,7 +62,7 @@ export default function Alert({
 
       {/* панель */}
       <div
-        className={`relative alert-panel flex flex-col mb-6 ${
+        className={`relative alert-panel flex flex-col mb-safe ${
           closing ? "animate-slide-out" : "animate-slide-in"
         }`}
       >

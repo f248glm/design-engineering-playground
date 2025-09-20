@@ -19,6 +19,10 @@ export default {
         DEFAULT: "var(--radius-md)",
         lg: "var(--radius-lg)",
       },
+      spacing: {
+        // Токены отступов
+        safe: "var(--spacing-bottom-safe)",
+      },
       boxShadow: {
         // Токены теней
         soft: "var(--shadow-soft)",

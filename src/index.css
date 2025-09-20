@@ -67,6 +67,9 @@
     --shadow-elevation-8pt:
         0 0 1px 0 rgba(0, 0, 28, 0.12), 0 2px 28px 0 rgba(0, 0, 28, 0.06);
 
+    /* spacing */
+    --spacing-bottom-safe: 32px;
+
     /* текстовые стили */
     --text-lg-size: 17px;
     --text-lg-line-height: 22px;
@@ -111,6 +114,10 @@
 
     .border-separator {
         border: 0.3px solid hsl(var(--color-separator));
+    }
+
+    .mb-safe {
+        margin-bottom: var(--spacing-bottom-safe);
     }
     .bg-viewport-alt {
         background-color: hsl(var(--color-viewport-alt));
@@ -229,7 +236,7 @@
     /* TabBar styles */
     .tab-bar {
         @apply inline-block fixed left-1/2 -translate-x-1/2;
-        bottom: 32px;
+        bottom: var(--spacing-bottom-safe);
     }
 
     .tab-bar-container {
