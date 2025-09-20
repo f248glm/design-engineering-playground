@@ -1,5 +1,6 @@
 import ButtonBody from "./ButtonBody";
 import React from "react";
+import { haptics } from "../utils/haptic";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "tetriary";
@@ -11,11 +12,21 @@ export default function Button({
   variant = "primary",
   size = "lg",
   className = "",
+  onClick,
   ...rest
 }: ButtonProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Trigger haptic feedback
+    haptics.buttonPress();
+
+    // Call original onClick if provided
+    onClick?.(e);
+  };
+
   return (
     <button
-      {...rest} // ← сюда придёт onClick, disabled, type и т.д.
+      {...rest}
+      onClick={handleClick}
       className={`btn btn-${size} btn-${variant} ${className}`}
     >
       <ButtonBody>{children}</ButtonBody>

@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-4 h-screen items-center justify-center bg-viewport">
-      <TabBar 
+      <TabBar
         tabs={["Primary", "Secondary", "Tetriary"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -41,6 +41,7 @@ export default function App() {
       {alertType && (
         <Alert
           title={ALERTS[alertType].title}
+          type={alertType as "primary" | "secondary" | "tertiary"}
           onClose={() => setAlertType(null)}
           actions={(close) => (
             <Button variant={ALERTS[alertType].variant} onClick={close}>

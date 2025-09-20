@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IconClose from "../assets/icons/close.svg?react";
+import { haptics } from "../utils/haptic";
 
 type AlertProps = {
   title: string;
@@ -8,6 +9,7 @@ type AlertProps = {
   actions?: (close: () => void) => React.ReactNode;
   showClose?: boolean;
   closeOnBackdrop?: boolean;
+  type?: "primary" | "secondary" | "tertiary" | "success" | "warning" | "error";
 };
 
 export default function Alert({
@@ -15,17 +17,39 @@ export default function Alert({
   onClose,
   children,
   actions,
+  type = "primary",
 }: AlertProps) {
   const [closing, setClosing] = useState(false);
 
   // при закрытии сначала запускаем анимацию, потом вызываем onClose
   const handleClose = () => {
+    // Trigger haptic feedback for modal close
+    haptics.modalClose();
+
     setClosing(true);
     setTimeout(() => {
       onClose?.();
       setClosing(false);
     }, 200); // длительность slide-out
   };
+
+  // Trigger haptic feedback when modal opens
+  useEffect(() => {
+    // Different haptic feedback based on alert type
+    switch (type) {
+      case "success":
+        haptics.success();
+        break;
+      case "warning":
+        haptics.warning();
+        break;
+      case "error":
+        haptics.error();
+        break;
+      default:
+        haptics.modalOpen();
+    }
+  }, [type]);
 
   return (
     <div

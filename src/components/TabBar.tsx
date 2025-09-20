@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { haptics } from "../utils/haptic";
 
 type TabBarProps = {
   tabs: string[];
@@ -23,6 +24,9 @@ export default function TabBar({
   const selectorLeft = `calc(${currentActiveTab * itemWidth}% + 4px)`;
 
   const handleTabClick = (index: number) => {
+    // Trigger haptic feedback for tab switch
+    haptics.tabSwitch();
+
     if (onTabChange) {
       onTabChange(index);
     } else {
