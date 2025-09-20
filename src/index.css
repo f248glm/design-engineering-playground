@@ -235,7 +235,7 @@
     .tab-bar-container {
         @apply relative flex rounded-[1000px] p-1 border-separator;
         background-color: hsl(var(--pal-neutral-900));
-        min-width: 200px;
+        min-width: 320px;
         box-shadow: var(--shadow-elevation-8pt);
     }
 
