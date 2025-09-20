@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* === Токены для Tailwind v4 через @theme === */
+@theme {
+    /* ===== PALLETTE (из Фигмы) — HSL-компоненты ===== */
+    /* accent */
+    --pal-accent-600: 211.3 100% 50%; /* #007AFF */
+    --pal-accent-700: 211.1 100% 55.7%; /* #1D8AFF */
+
+    /* success | warning | error */
+    --pal-success-600: 135.1 58.6% 49.2%; /* #34C759 */
+    --pal-warning-600: 45.1 100% 51.8%; /* #FFC209 */
+    --pal-error-600: 3.2 100% 59.4%; /* #FF3B30 */
+
+    /* neutral scale (000 → 900) */
+    --pal-neutral-000: 210 100% 2.7%; /* #00070E */
+    --pal-neutral-050: 210 5% 7.8%; /* #131415 */
+    --pal-neutral-100: 200 5.3% 11.2%; /* #1B1D1E */
+    --pal-neutral-200: 202.5 4.9% 31.8%; /* #4D5255 */
+    --pal-neutral-300: 197.1 3.3% 41.4%; /* #666B6D */
+    --pal-neutral-400: 204 2% 51.2%; /* #808385 */
+    --pal-neutral-500: 204 2.5% 61%; /* #999C9E */
+    --pal-neutral-600: 200 2% 70.8%; /* #B3B5B6 */
+    --pal-neutral-700: 210 2% 80.4%; /* #CCCDCE */
+    --pal-neutral-800: 0 0% 94.1%; /* #F0F0F0 */
+    --pal-neutral-900: 0 0% 100%; /* #FFFFFF */
+
+    /* ===== СЕМАНТИКА (LIGHT) — маппинг на палитру ===== */
+    /* текст/иконки */
+    --color-text-primary: var(--pal-neutral-000);
+    --color-text-on-primary: var(--pal-neutral-900);
+    --color-text-secondary: var(--pal-neutral-400);
+    --color-text-accent: var(--pal-accent-600);
+    --color-text-disabled: var(--pal-neutral-600);
+    --color-text-positive: var(--pal-success-600);
+    --color-text-warning: var(--pal-warning-600);
+    --color-text-error: var(--pal-error-600);
+
+    /* фоны */
+    --color-card: var(--pal-neutral-900); /* #FFFFFF */
+    --color-viewport-alt: var(--pal-neutral-800);
+    --color-card: var(--pal-neutral-900); /* #FFFFFF */
+
+    /* кнопки */
+    --color-button-primary: var(--pal-accent-600);
+    --color-button-primary-foreground: var(--pal-neutral-900);
+
+    --color-button-secondary: var(--pal-neutral-800);
+    --color-button-secondary-foreground: var(--pal-neutral-100);
+
+    --color-button-tertiary: var(--pal-neutral-900);
+    --color-button-tertiary-foreground: var(--pal-neutral-000);
+
+    /* общесистемные (для удобства) */
+    --color-background: var(--color-viewport);
+    --color-foreground: var(--color-text-primary);
+
+    /* overlay */
+    --color-separator: var(--pal-neutral-000) / 0.17;
+
+    /* радиусы/тени оставим как были — при желании поменяем позже */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hard: 0 8px 24px rgba(0, 0, 0, 0.16);
+    --shadow-elevation-8pt:
+        0 0 1px 0 rgba(0, 0, 28, 0.12), 0 2px 28px 0 rgba(0, 0, 28, 0.06);
+
+    /* текстовые стили */
+    --text-lg-size: 17px;
+    --text-lg-line-height: 22px;
+    --text-lg-weight: 600;
+
+    --text-md-size: 15px;
+    --text-md-line-height: 18px;
+    --text-md-weight: 500;
+
+    --text-body-size: 17px;
+    --text-body-line-height: 22px;
+    --text-body-weight: 400;
+    --text-body-letter-spacing: -0.015em;
+
+    /* шрифт */
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "SF Pro", "Helvetica Neue", Arial,
+        system-ui, "Segoe UI", Roboto, "Noto Sans", "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+}
+
+/* База */
+@layer base {
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+    body {
+        @apply bg-background text-foreground antialiased font-sans;
+    }
+}
+
+@layer utilities {
+    .card {
+        @apply rounded-lg shadow-soft bg-white;
+    }
+
+    .shadow-elevation-8pt {
+        box-shadow: var(--shadow-elevation-8pt);
+    }
+
+    .border-separator {
+        border: 0.3px solid hsl(var(--color-separator));
+    }
+    .bg-viewport-alt {
+        background-color: hsl(var(--color-viewport-alt));
+    }
+    .bg-button-primary {
+        background-color: hsl(var(--color-button-primary));
+    }
+    .text-button-primary-foreground {
+        color: hsl(var(--color-button-primary-foreground));
+    }
+
+    .btn {
+        @apply cursor-pointer inline-flex items-center justify-center
+           rounded-[18px]
+           transform-gpu
+           transition-transform active:scale-90
+           duration-[400ms] ease-out;
+    }
+
+    .btn-lg {
+        @apply px-[16px] py-[19px]
+         min-w-[320px]
+         text-[var(--text-lg-size)]
+         leading-[var(--text-lg-line-height)]
+         font-[var(--text-lg-weight)];
+    }
+
+    .btn-primary {
+        @apply bg-[hsl(var(--color-button-primary))]
+            text-[hsl(var(--color-text-on-primary))];
+    }
+
+    .btn-secondary {
+        @apply bg-[hsl(var(--pal-neutral-000)/0.07)]
+            text-[hsl(var(--color-text-primary))];
+    }
+
+    .btn-tetriary {
+        @apply bg-[hsl(var(--color-button-primary)/0.10)]
+            text-[hsl(var(--color-text-accent))];
+    }
+
+    .text-style-lg {
+        font-size: var(--text-lg-size);
+        line-height: var(--text-lg-line-height);
+        font-weight: var(--text-lg-weight);
+    }
+
+    .text-style-md {
+        font-size: var(--text-md-size);
+        line-height: var(--text-md-line-height);
+        font-weight: var(--text-md-weight);
+    }
+
+    .text-style-body {
+        font-size: var(--text-body-size);
+        line-height: var(--text-body-line-height);
+        font-weight: var(--text-body-weight);
+        letter-spacing: var(--text-body-letter-spacing);
+    }
+
+    .btn-body {
+        @apply inline-flex items-center gap-2;
+    }
+
+    .btn-body-lg {
+    }
+
+    .backdrop {
+        background-color: hsl(var(--pal-neutral-000) / 0.4);
+    }
+
+    .alert-panel {
+        @apply rounded-[32px];
+        background-color: hsl(var(--color-card));
+        color: hsl(var(--color-text-primary));
+        width: 360px;
+        max-width: 90vw;
+    }
+
+    .alert-header {
+        @apply flex items-start justify-between;
+        padding: 22px 20px 16px 20px; /* top | right | bottom | left */
+        border-bottom: 0.3px solid hsl(var(--pal-neutral-000) / 0.17);
+    }
+
+    .animate-slide-in {
+        animation: slide-in 200ms ease-out forwards;
+    }
+    .animate-slide-out {
+        animation: slide-out 200ms ease-out forwards;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    }
+
+    /* TabBar styles */
+    .tab-bar {
+        @apply inline-block fixed left-1/2 -translate-x-1/2;
+        bottom: 32px;
+    }
+
+    .tab-bar-container {
+        @apply relative flex rounded-[1000px] p-1 border-separator;
+        background-color: hsl(var(--pal-neutral-900));
+        min-width: 200px;
+        box-shadow: var(--shadow-elevation-8pt);
+    }
+
+    .tab-bar-item {
+        @apply relative z-10 flex-1 px-4 py-2 rounded-[1000px]
+               transition-colors duration-200 ease-out
+               text-center cursor-pointer;
+        background-color: transparent;
+        color: hsl(var(--color-text-primary));
+        border: none;
+        outline: none;
+    }
+
+    .tab-bar-item.active {
+        color: hsl(var(--color-text-primary));
+    }
+
+    .tab-bar-selector {
+        @apply absolute top-1 bottom-1 z-0 rounded-[1000px]
+               transition-all duration-200 ease-out;
+        background-color: hsl(var(--pal-neutral-000) / 0.07);
+        /* width и left задаются inline через style */
+    }
+}
