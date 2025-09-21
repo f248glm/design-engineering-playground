@@ -10,9 +10,9 @@ export const ALERTS = {
     text: "History repeats itself, first as tragedy, then as this notification. Blink, and you’ll miss the meaning.",
     variant: "secondary",
   },
-  tetriary: {
-    title: "Tetriary Alert",
+  tertiary: {
+    title: "Tertiary Alert",
     text: "Somewhere, a philosopher invents new doubts. Here, you only get this one.",
-    variant: "tetriary",
+    variant: "tertiary",
   },
 } as const;

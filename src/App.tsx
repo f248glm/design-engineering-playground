@@ -6,7 +6,7 @@ import TabBar from "./components/TabBar";
 import { ALERTS } from "./config/alerts"; // без .ts и c точным именем
 
 // Локально выводим тип ключей из ALERTS
-type AlertType = keyof typeof ALERTS; // "primary" | "secondary" | "tetriary"
+type AlertType = keyof typeof ALERTS; // "primary" | "secondary" | "tertiary"
 
 export default function App() {
   const [alertType, setAlertType] = useState<AlertType | null>(null);
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4 h-screen items-center justify-center bg-viewport">
       <TabBar
-        tabs={["Primary", "Secondary", "Tetriary"]}
+        tabs={["Primary", "Secondary", "Tertiary"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
@@ -33,8 +33,8 @@ export default function App() {
       )}
 
       {activeTab === 2 && (
-        <Button variant="tetriary" onClick={() => setAlertType("tetriary")}>
-          Open Tetriary Alert
+        <Button variant="tertiary" onClick={() => setAlertType("tertiary")}>
+          Open Tertiary Alert
         </Button>
       )}
 

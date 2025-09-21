@@ -155,7 +155,7 @@
             text-[hsl(var(--color-text-primary))];
     }
 
-    .btn-tetriary {
+    .btn-tertiary {
         @apply bg-[hsl(var(--color-button-primary)/0.10)]
             text-[hsl(var(--color-text-accent))];
     }
