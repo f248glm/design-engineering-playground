@@ -3,7 +3,12 @@ import { useState } from "react";
 import Button from "./components/Button";
 import Alert from "./components/Alert";
 import TabBar from "./components/TabBar";
-import { ALERTS } from "./config/alerts"; // без .ts и c точным именем
+import Cell from "./components/Cell";
+import { ALERTS } from "./config/alerts";
+
+// Import app images
+import dedustImage from "./assets/appImg/dedust.jpeg";
+import stonfiImage from "./assets/appImg/stonfi.jpeg"; // без .ts и c точным именем
 
 // Локально выводим тип ключей из ALERTS
 type AlertType = keyof typeof ALERTS; // "primary" | "secondary" | "tertiary"
@@ -15,27 +20,49 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4 h-screen items-center justify-center bg-viewport">
       <TabBar
-        tabs={["Primary", "Secondary", "Tertiary"]}
+        tabs={["Buttons", "Cells"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
 
+      {/* Buttons Section */}
       {activeTab === 0 && (
-        <Button variant="primary" onClick={() => setAlertType("primary")}>
-          Open Primary Alert
-        </Button>
+        <div className="flex flex-col gap-4">
+          <Button variant="primary" onClick={() => setAlertType("primary")}>
+            Primary Button
+          </Button>
+
+          <Button variant="secondary" onClick={() => setAlertType("secondary")}>
+            Secondary Button
+          </Button>
+
+          <Button variant="tertiary" onClick={() => setAlertType("tertiary")}>
+            Tertiary Button
+          </Button>
+        </div>
       )}
 
+      {/* Cells Section */}
       {activeTab === 1 && (
-        <Button variant="secondary" onClick={() => setAlertType("secondary")}>
-          Open Secondary Alert
-        </Button>
-      )}
+        <div className="bg-viewport-alt w-full h-full flex items-center justify-center p-4">
+          <div className="flex flex-col gap-2 w-full max-w-md">
+            <Cell
+              size="M"
+              appName="Stonfi"
+              appDescription="DeFi protocol for TON blockchain"
+              appIcon={stonfiImage}
+              onOpenClick={() => console.log("Open Stonfi")}
+            />
 
-      {activeTab === 2 && (
-        <Button variant="tertiary" onClick={() => setAlertType("tertiary")}>
-          Open Tertiary Alert
-        </Button>
+            <Cell
+              size="S"
+              appName="DeDust"
+              appDescription="Decentralized exchange protocol"
+              appIcon={dedustImage}
+              onOpenClick={() => console.log("Open DeDust")}
+            />
+          </div>
+        </div>
       )}
 
       {alertType && (

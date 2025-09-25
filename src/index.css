@@ -84,6 +84,14 @@
     --text-body-weight: 400;
     --text-body-letter-spacing: -0.015em;
 
+    --text-appname-size: 17px;
+    --text-appname-line-height: 22px;
+    --text-appname-weight: 500;
+
+    --text-description-size: 14px;
+    --text-description-line-height: 18px;
+    --text-description-weight: 400;
+
     /* шрифт */
     --font-sans:
         -apple-system, BlinkMacSystemFont, "SF Pro", "Helvetica Neue", Arial,
@@ -145,6 +153,14 @@
          font-[var(--text-lg-weight)];
     }
 
+    .btn-sm {
+        @apply px-[12px] py-[6px]
+         rounded-[1000px]
+         text-[var(--text-md-size)]
+         leading-[var(--text-md-line-height)]
+         font-[var(--text-md-weight)];
+    }
+
     .btn-primary {
         @apply bg-[hsl(var(--color-button-primary))]
             text-[hsl(var(--color-text-on-primary))];
@@ -177,6 +193,18 @@
         line-height: var(--text-body-line-height);
         font-weight: var(--text-body-weight);
         letter-spacing: var(--text-body-letter-spacing);
+    }
+
+    .text-style-description {
+        font-size: var(--text-description-size);
+        line-height: var(--text-description-line-height);
+        font-weight: var(--text-description-weight);
+    }
+
+    .text-style-appname {
+        font-size: var(--text-appname-size);
+        line-height: var(--text-appname-line-height);
+        font-weight: var(--text-appname-weight);
     }
 
     .btn-body {
@@ -233,6 +261,31 @@
         }
     }
 
+    /* Cell styles */
+    .cell {
+        @apply flex items-center gap-[10px] bg-[hsl(var(--color-card))];
+    }
+
+    .cell-s {
+        @apply pl-[16px] pr-[12px] py-[8px];
+    }
+
+    .cell-m {
+        @apply pl-[16px] pr-[12px] py-[6px];
+    }
+
+    .cell-icon {
+        @apply flex-shrink-0 bg-neutral-100 flex items-center justify-center overflow-hidden;
+    }
+
+    .cell-icon-s {
+        @apply w-12 h-12 rounded-[12px];
+    }
+
+    .cell-icon-m {
+        @apply w-16 h-16 rounded-[16px];
+    }
+
     /* TabBar styles */
     .tab-bar {
         @apply inline-block fixed left-1/2 -translate-x-1/2;
@@ -251,6 +304,7 @@
                transition-colors duration-200 ease-out
                text-center cursor-pointer;
         background-color: transparent;
+        min-width: 120px;
         color: hsl(var(--color-text-primary));
         border: none;
         outline: none;
