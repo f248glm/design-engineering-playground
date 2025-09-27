@@ -44,23 +44,49 @@ export default function App() {
 
       {/* Cells Section */}
       {activeTab === 1 && (
-        <div className="bg-viewport-alt w-full h-full flex items-center justify-center p-4">
-          <div className="flex flex-col gap-2 w-full max-w-md">
-            <Cell
-              size="M"
-              appName="Stonfi"
-              appDescription="DeFi protocol for TON blockchain"
-              appIcon={stonfiImage}
-              onOpenClick={() => console.log("Open Stonfi")}
-            />
+        <div className="bg-viewport-alt w-full h-full flex flex-col gap-[12px] items-center justify-center p-4">
+          <div className="card">
+            <div className="flex flex-col">
+              <Cell
+                size="M"
+                appName="Stonfi"
+                appDescription="DeFi protocol for TON blockchain"
+                appIcon={stonfiImage}
+                onOpenClick={() => console.log("Open Stonfi")}
+                className="w-full"
+              />
 
-            <Cell
-              size="S"
-              appName="DeDust"
-              appDescription="Decentralized exchange protocol"
-              appIcon={dedustImage}
-              onOpenClick={() => console.log("Open DeDust")}
-            />
+              <Cell
+                size="M"
+                appName="DeDust"
+                appDescription="Decentralized exchange protocol"
+                appIcon={dedustImage}
+                onOpenClick={() => console.log("Open Stonfi")}
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="flex flex-col">
+              <Cell
+                size="S"
+                appName="DeDust"
+                appDescription="Decentralized exchange protocol"
+                appIcon={dedustImage}
+                onOpenClick={() => console.log("Open DeDust")}
+                className="w-full"
+              />
+
+              <Cell
+                size="S"
+                appName="Stonfi"
+                appDescription="DeFi protocol for TON blockchain"
+                appIcon={stonfiImage}
+                onOpenClick={() => console.log("Open Stonfi")}
+                className="w-full"
+              />
+            </div>
           </div>
         </div>
       )}

@@ -113,7 +113,8 @@
 
 @layer utilities {
     .card {
-        @apply rounded-lg shadow-soft bg-white;
+        @apply rounded-[24px] shadow-elevation-8pt overflow-hidden w-full max-w-[400px] py-[4px];
+        background-color: hsl(var(--color-card));
     }
 
     .shadow-elevation-8pt {
