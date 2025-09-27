@@ -71,6 +71,10 @@
     --spacing-bottom-safe: 32px;
 
     /* текстовые стили */
+    --text-groupHeader-size: 20px;
+    --text-groupHeader-line-height: 24px;
+    --text-groupHeader-weight: 500;
+
     --text-lg-size: 17px;
     --text-lg-line-height: 22px;
     --text-lg-weight: 600;
@@ -206,6 +210,20 @@
         font-size: var(--text-appname-size);
         line-height: var(--text-appname-line-height);
         font-weight: var(--text-appname-weight);
+    }
+
+    .text-style-groupHeader {
+        font-size: var(--text-groupHeader-size);
+        line-height: var(--text-groupHeader-line-height);
+        font-weight: var(--text-groupHeader-weight);
+    }
+
+    .group-header {
+        font-size: var(--text-groupHeader-size);
+        line-height: var(--text-groupHeader-line-height);
+        font-weight: var(--text-groupHeader-weight);
+        color: hsl(var(--color-text-primary));
+        padding: 16px 16px 4px 16px;
     }
 
     .btn-body {

@@ -45,8 +45,9 @@ export default function App() {
       {/* Cells Section */}
       {activeTab === 1 && (
         <div className="bg-viewport-alt w-full h-full flex flex-col gap-[12px] items-center justify-center p-4">
-          <div className="card">
+          <div className="card mb-[16px]">
             <div className="flex flex-col">
+              <div className="group-header"> Medium Cells</div>
               <Cell
                 size="M"
                 appName="Stonfi"
@@ -67,8 +68,9 @@ export default function App() {
             </div>
           </div>
 
-          <div className="card">
+          <div className="card mb-[4px]">
             <div className="flex flex-col">
+              <div className="group-header"> Small Cells</div>
               <Cell
                 size="S"
                 appName="DeDust"
