@@ -4,11 +4,14 @@ import Button from "./components/Button";
 import Alert from "./components/Alert";
 import TabBar from "./components/TabBar";
 import Cell from "./components/Cell";
+import GroupHeader from "./components/GroupHeader";
 import { ALERTS } from "./config/alerts";
+import PromoAppCard from "./components/PromoAppCard";
 
 // Import app images
 import dedustImage from "./assets/appImg/dedust.jpeg";
-import stonfiImage from "./assets/appImg/stonfi.jpeg"; // без .ts и c точным именем
+import stonfiImage from "./assets/appImg/stonfi.jpeg";
+import memhustleImage from "./assets/appImg/memhustle.jpeg";
 
 // Локально выводим тип ключей из ALERTS
 type AlertType = keyof typeof ALERTS; // "primary" | "secondary" | "tertiary"
@@ -45,9 +48,14 @@ export default function App() {
       {/* Cells Section */}
       {activeTab === 1 && (
         <div className="bg-viewport-alt w-full h-full flex flex-col gap-[12px] items-center justify-center p-4">
-          <div className="card mb-[16px]">
+          <div className="card pb-[4px]">
             <div className="flex flex-col">
-              <div className="group-header"> Medium Cells</div>
+              <GroupHeader
+                title="Medium Cells"
+                counter="2"
+                rightText="See All"
+                onRightClick={() => console.log("See all medium cells")}
+              />
               <Cell
                 size="M"
                 appName="Stonfi"
@@ -62,15 +70,21 @@ export default function App() {
                 appName="DeDust"
                 appDescription="Decentralized exchange protocol"
                 appIcon={dedustImage}
-                onOpenClick={() => console.log("Open Stonfi")}
+                onOpenClick={() => console.log("Open DeDust")}
                 className="w-full"
               />
             </div>
           </div>
 
-          <div className="card mb-[4px]">
+          <div className="card pb-[4px]">
             <div className="flex flex-col">
-              <div className="group-header"> Small Cells</div>
+              <GroupHeader
+                title="Small Cells"
+                counter="(2)"
+                subtitle="Compact view for more apps"
+                rightText="Expand"
+                onRightClick={() => console.log("Expand small cells")}
+              />
               <Cell
                 size="S"
                 appName="DeDust"
@@ -90,6 +104,17 @@ export default function App() {
               />
             </div>
           </div>
+
+          <PromoAppCard
+            title="Tower defense where memecoins fight scam-bosses"
+            subtitle="Top-tier gameplay, NFTs & daily events with real TON rewards!"
+            appName="MemHustle"
+            appIcon={memhustleImage}
+            buttonVariant="secondary"
+            appDescription="Ton-based multi-player sho..."
+            backgroundColor="hsl(250 100% 90%)" // фиолетовый как на картинке
+            onOpenClick={() => console.log("Open MemHustle")}
+          />
         </div>
       )}
 

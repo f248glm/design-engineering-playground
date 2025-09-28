@@ -112,12 +112,15 @@
     }
     body {
         @apply bg-background text-foreground antialiased font-sans;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
     }
 }
 
 @layer utilities {
     .card {
-        @apply rounded-[24px] shadow-elevation-8pt overflow-hidden w-full max-w-[400px] py-[4px];
+        @apply rounded-[24px] shadow-elevation-8pt overflow-hidden w-full max-w-[400px];
         background-color: hsl(var(--color-card));
     }
 
@@ -230,9 +233,6 @@
         @apply inline-flex items-center gap-2;
     }
 
-    .btn-body-lg {
-    }
-
     .backdrop {
         background-color: hsl(var(--pal-neutral-000) / 0.4);
     }
@@ -282,7 +282,7 @@
 
     /* Cell styles */
     .cell {
-        @apply flex items-center gap-[10px] bg-[hsl(var(--color-card))];
+        @apply flex items-center gap-[10px];
     }
 
     .cell-s {

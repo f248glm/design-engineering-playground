@@ -4,11 +4,13 @@ import { haptics } from "../utils/haptic";
 
 type OpenButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
+  variant?: "primary" | "secondary" | "tertiary";
 };
 
 export default function OpenButton({
   children = "Open",
   className = "",
+  variant = "tertiary",
   onClick,
   ...rest
 }: OpenButtonProps) {
@@ -21,7 +23,7 @@ export default function OpenButton({
     <button
       {...rest}
       onClick={handleClick}
-      className={`btn btn-sm btn-tertiary ${className}`}
+      className={`btn btn-sm btn-${variant} ${className}`}
     >
       <InlineContent>{children}</InlineContent>
     </button>

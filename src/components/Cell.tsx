@@ -8,6 +8,7 @@ type CellProps = {
   appName: string;
   appDescription: string;
   appIcon?: React.ReactNode | string;
+  buttonVariant?: "primary" | "secondary" | "tertiary";
   onOpenClick?: () => void;
   className?: string;
 };
@@ -17,6 +18,7 @@ export default function Cell({
   appName,
   appDescription,
   appIcon,
+  buttonVariant = "tertiary",
   onOpenClick,
   className = "",
 }: CellProps) {
@@ -56,7 +58,7 @@ export default function Cell({
 
       {/* Open Button */}
       <div className="flex-shrink-0">
-        <OpenButton onClick={onOpenClick} />
+        <OpenButton variant={buttonVariant} onClick={onOpenClick} />
       </div>
     </div>
   );
