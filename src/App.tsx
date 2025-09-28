@@ -11,7 +11,7 @@ import PromoAppCard from "./components/PromoAppCard";
 // Import app images
 import dedustImage from "./assets/appImg/dedust.jpeg";
 import stonfiImage from "./assets/appImg/stonfi.jpeg";
-import memhustleImage from "./assets/appImg/memhustle.jpeg";
+import memhustleImage from "./assets/appImg/memHustle.jpeg";
 
 // Локально выводим тип ключей из ALERTS
 type AlertType = keyof typeof ALERTS; // "primary" | "secondary" | "tertiary"
