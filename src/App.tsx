@@ -107,7 +107,7 @@ export default function App() {
 
           <PromoAppCard
             title="Tower defense where memecoins fight scam-bosses"
-            subtitle="Top-tier gameplay, NFTs & daily events with real TON rewards!"
+            subtitle="Top-tier gameplay, NFTs & daily events with TON rewards!"
             appName="MemHustle"
             appIcon={memhustleImage}
             buttonVariant="secondary"
