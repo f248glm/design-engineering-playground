@@ -150,7 +150,7 @@
            rounded-[18px]
            transform-gpu
            transition-transform active:scale-90
-           duration-[400ms] ease-out;
+           duration-[250ms] ease-out;
     }
 
     .btn-lg {
