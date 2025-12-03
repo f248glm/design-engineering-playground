@@ -53,7 +53,7 @@ export default function Alert({
 
   return (
     <div
-      className="fixed inset-0 flex items-end justify-center p-4 z-[100]"
+      className="fixed inset-0 flex items-end justify-center px-4 z-[100]"
       role="dialog"
       aria-modal="true"
     >
