@@ -77,7 +77,7 @@ export default function Alert({
             onClick={handleClose}
             className="btn rounded-[1000px] w-[32px] h-[32px] bg-[hsl(var(--color-button-alpha))] text-[hsl(var(--color-text-primary))] flex items-center justify-center"
           >
-            <IconClose className="w-[16px] h-[16px]" />
+            <IconClose className="w-[16px] h-[16px] fill-current" />
           </button>
         </div>
 
