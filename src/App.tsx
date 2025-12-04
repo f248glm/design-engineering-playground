@@ -40,7 +40,7 @@ export default function App() {
           </Button>
 
           <Button variant="tertiary" onClick={() => setAlertType("tertiary")}>
-            Tertiary Button
+            Tetriary Button
           </Button>
         </div>
       )}
