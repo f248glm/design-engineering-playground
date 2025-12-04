@@ -75,7 +75,7 @@ export default function Alert({
             type="button"
             aria-label="Close"
             onClick={handleClose}
-            className="btn rounded-[1000px] w-[32px] h-[32px] bg-[hsl(var(--pal-neutral-800))] text-[hsl(var(--pal-neutral-000))] flex items-center justify-center"
+            className="btn rounded-[1000px] w-[32px] h-[32px] bg-[hsl(var(--color-button-alpha))] text-[hsl(var(--color-text-primary))] flex items-center justify-center"
           >
             <IconClose className="w-[16px] h-[16px]" />
           </button>

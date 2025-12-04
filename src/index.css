@@ -37,7 +37,7 @@
     --color-text-error: var(--pal-error-600);
 
     /* фоны */
-    --color-card: var(--pal-neutral-900); /* #FFFFFF */
+    --color-viewport: var(--pal-neutral-900); /* #FFFFFF */
     --color-viewport-alt: var(--pal-neutral-800);
     --color-card: var(--pal-neutral-900); /* #FFFFFF */
 
@@ -57,8 +57,9 @@
 
     /* overlay */
     --color-separator: var(--pal-neutral-000) / 0.17;
+    --color-button-alpha: var(--pal-neural-000) / 0.07;
 
-    /* радиусы/тени оставим как были — при желании поменяем позже */
+    /* Corner Radius */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
@@ -128,6 +129,34 @@
     --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
+@media (prefers-color-scheme: dark) {
+    @theme {
+        /* Text colors */
+        --color-text-primary: var(--pal-neutral-800);
+        --color-text-on-primary: var(--pal-neutral-800);
+        --color-text-secondary: var(--pal-neutral-500);
+        --color-text-accent: var(--pal-accent-700);
+        --color-text-disabled: var(--pal-neutral-300);
+        --color-text-positive: var(--pal-success-600);
+        --color-text-warning: var(--pal-warning-600);
+        --color-text-error: var(--pal-error-600);
+
+        /* Background colors */
+        --color-card: var(--pal-neutral-100);
+        --color-viewport: var(--pal-neutral-000);
+        --color-viewport-alt: var(--pal-neutral-050);
+
+        /* Buttons colors */
+        --color-button-primary: var(--pal-accent-700);
+        --color-button-secondary: var(--pal-neutral-100);
+        --color-button-tertiary: var(--pal-neutral-000);
+
+        /* Overlay */
+        --color-separator: var(--pal-neutral-900) / 0.2;
+        --color-button-alpha: var(--pal-neutral-900) / 0.1;
+    }
+}
+
 /* База */
 @layer base {
     html,
@@ -159,6 +188,9 @@
 
     .mb-safe {
         margin-bottom: var(--spacing-bottom-safe);
+    }
+    .bg-viewport {
+        background-color: hsl(var(--color-viewport));
     }
     .bg-viewport-alt {
         background-color: hsl(var(--color-viewport-alt));
@@ -200,7 +232,7 @@
     }
 
     .btn-secondary {
-        @apply bg-[hsl(var(--pal-neutral-000)/0.07)]
+        @apply bg-[hsl(var(--color-button-alpha))]
             text-[hsl(var(--color-text-primary))];
     }
 
@@ -273,7 +305,7 @@
     .alert-header {
         @apply flex items-start justify-between;
         padding: 22px 20px 16px 20px; /* top | right | bottom | left */
-        border-bottom: 0.3px solid hsl(var(--pal-neutral-000) / 0.17);
+        border-bottom: 0.3px solid hsl(var(--color-separator));
     }
 
     .animate-slide-in {
@@ -339,7 +371,7 @@
 
     .tab-bar-container {
         @apply relative flex rounded-[1000px] p-1 border-separator;
-        background-color: hsl(var(--pal-neutral-900));
+        background-color: hsl(var(--color-card));
         min-width: 320px;
         box-shadow: var(--shadow-elevation-8pt);
     }
@@ -363,7 +395,7 @@
         @apply absolute top-1 bottom-1 z-0 rounded-[1000px]
                transition-all duration-180;
         transition-timing-function: var(--ease-in-out-expo);
-        background-color: hsl(var(--pal-neutral-000) / 0.07);
+        background-color: hsl(var(--color-button-alpha));
         /* width и left задаются inline через style */
     }
 }

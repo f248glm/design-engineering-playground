@@ -105,16 +105,18 @@ export default function App() {
             </div>
           </div>
 
-          <PromoAppCard
-            title="Tower defense where memecoins fight scam-bosses"
-            subtitle="Top-tier gameplay, NFTs & daily events with TON rewards!"
-            appName="MemHustle"
-            appIcon={memhustleImage}
-            buttonVariant="secondary"
-            appDescription="Ton-based multi-player sho..."
-            backgroundColor="hsl(250 100% 90%)" // фиолетовый как на картинке
-            onOpenClick={() => console.log("Open MemHustle")}
-          />
+          {false && (
+            <PromoAppCard
+              title="Tower defense where memecoins fight scam-bosses"
+              subtitle="Top-tier gameplay, NFTs & daily events with TON rewards!"
+              appName="MemHustle"
+              appIcon={memhustleImage}
+              buttonVariant="secondary"
+              appDescription="Ton-based multi-player sho..."
+              backgroundColor="hsl(250 100% 90%)" // фиолетовый как на картинке
+              onOpenClick={() => console.log("Open MemHustle")}
+            />
+          )}
         </div>
       )}
 
