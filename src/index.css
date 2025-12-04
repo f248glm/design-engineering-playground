@@ -162,12 +162,17 @@
     body,
     #root {
         height: 100%;
+        overscroll-behavior: none;
+    }
+    html {
+        background-color: hsl(var(--color-viewport));
     }
     body {
         @apply bg-background text-foreground antialiased font-sans;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
+        overscroll-behavior: none;
     }
 }
 
