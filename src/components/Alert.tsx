@@ -58,7 +58,12 @@ export default function Alert({
       aria-modal="true"
     >
       {/* затемняющий фон */}
-      <div className="absolute inset-0 backdrop" onClick={handleClose} />
+      <div
+        className={`absolute inset-0 backdrop ${
+          closing ? "animate-fade-out" : "animate-fade-in"
+        }`}
+        onClick={handleClose}
+      />
 
       {/* панель */}
       <div
