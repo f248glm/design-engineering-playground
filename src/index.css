@@ -393,14 +393,34 @@
 
     /* TabBar styles */
     .tab-bar {
-        @apply inline-block fixed left-1/2 -translate-x-1/2;
+        @apply fixed left-1/2 -translate-x-1/2;
         bottom: var(--spacing-bottom-safe);
         z-index: 50;
+    }
+
+    .tab-bar::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: calc(100% + 80px); /* высота градиента выше TabBar */
+        pointer-events: none;
+        background: linear-gradient(
+            to bottom,
+            hsl(var(--color-viewport) / 0) 0%,
+            hsl(var(--color-viewport) / 0.7) 40%,
+            hsl(var(--color-viewport) / 0.95) 70%,
+            hsl(var(--color-viewport)) 100%
+        );
     }
 
     .tab-bar-container {
         @apply relative flex rounded-[1000px] p-1 border-separator;
         background-color: hsl(var(--color-button-alpha));
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         min-width: 320px;
         box-shadow: var(--shadow-elevation-8pt);
     }
