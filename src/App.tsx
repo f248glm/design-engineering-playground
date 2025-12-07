@@ -47,7 +47,7 @@ export default function App() {
 
       {/* Cells Section */}
       {activeTab === 1 && (
-        <div className="bg-viewport-alt w-full h-full flex flex-col gap-[12px] items-center justify-center p-4">
+        <div className="bg-viewport w-full h-full flex flex-col gap-[12px] items-center justify-center p-4">
           <div className="card pb-[4px]">
             <div className="flex flex-col">
               <GroupHeader
